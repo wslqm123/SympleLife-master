@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".panorama.MD360PlayerActivity">
+
+   <FrameLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+      <android.opengl.GLSurfaceView
+          android:id="@+id/gl_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+   </FrameLayout>
+
+   <LinearLayout
+       android:id="@+id/ll_media_controller"
+       android:orientation="horizontal"
+       android:layout_alignParentBottom="true"
+       android:layout_margin="15dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <ImageButton
+          android:id="@+id/btn_player_toogle"
+          android:layout_gravity="center_vertical"
+          android:background="@android:color/transparent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@android:drawable/ic_media_pause"/>
+
+      <SeekBar
+          android:id="@+id/panorama_video_seekbar"
+          android:layout_gravity="center_vertical"
+          android:layout_weight="1"
+          android:layout_width="0dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginRight="5dp"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/tv_video_duration"
+          android:layout_gravity="center_vertical"
+          android:layout_width="wrap_content"
+          android:textColor="@color/white"
+          android:layout_height="wrap_content" />
+
+   </LinearLayout>
+
+
+
+   <ProgressBar
+       android:layout_centerInParent="true"
+       android:id="@+id/progress"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+</RelativeLayout>
