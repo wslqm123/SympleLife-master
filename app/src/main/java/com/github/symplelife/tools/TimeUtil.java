@@ -13,7 +13,7 @@ public class TimeUtil {
     public static String second2Min(int sec){
         int second = sec%60;
         int minute  = sec/60;
-        return minute + ":" + second;
+        return minute + "′" + second + "″";
     }
 
     /**

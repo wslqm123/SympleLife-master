@@ -32,6 +32,8 @@ public abstract class MD360PlayerActivity extends Activity {
 
     protected PowerManager pManager;
     protected WakeLock mWakeLock;
+    // 正常模式
+    private static boolean modeNormal = false;
 
     private static final SparseArray<String> sDisplayMode = new SparseArray<>();
     private static final SparseArray<String> sInteractiveMode = new SparseArray<>();
@@ -57,7 +59,8 @@ public abstract class MD360PlayerActivity extends Activity {
     }
 
 
-    public static void startVideo(Context context, Uri uri){
+    public static void startVideo(Context context, Uri uri , boolean mode){
+        modeNormal = mode;
         start(context, uri, VideoPlayerActivity.class);
     }
 
@@ -94,6 +97,10 @@ public abstract class MD360PlayerActivity extends Activity {
 
         // init VR Library
         mVRLibrary = createVRLibrary();
+
+        if (modeNormal){
+            mVRLibrary.switchProjectionMode(MD360PlayerActivity.this, MDVRLibrary.PROJECTION_MODE_PLANE_FIT);
+        }
 
         pManager = ((PowerManager) getSystemService(POWER_SERVICE));
         mWakeLock = pManager.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK

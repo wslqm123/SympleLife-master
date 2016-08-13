@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 
 import com.github.symplelife.R;
 import com.github.symplelife.adapter.VideoAdapter;
-import com.github.symplelife.api.ApiConstants;
 import com.github.symplelife.bean.VideoListEntity;
 import com.github.symplelife.common.Constants;
 import com.github.symplelife.tools.GsonUtils;
 import com.github.symplelife.tools.PromptManager;
+import com.github.symplelife.tools.UriHelper;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.LogUtil;
@@ -203,7 +203,8 @@ public class VideoListFragment extends Fragment implements SwipeRefreshLayout.On
             url = nextPageUrl;
 
         }else {
-            url = ApiConstants.PANORAMA_LIST;
+//            url = ApiConstants.PANORAMA_LIST;
+            url = UriHelper.getInstance().getVideoListUrl(position);
         }
         RequestParams params = new RequestParams(url);
         LogUtil.e(url);

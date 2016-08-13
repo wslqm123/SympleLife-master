@@ -55,6 +55,10 @@ public class ApiConstants {
 
     //        360°全景视频
     public static final String PANORAMA_LIST= "http://baobab.wandoujia.com/api/v3/tag/videos?tagId=658&strategy=date";
+    //        top视频
+    public static final String TOP_VIDEO_LIST= "http://baobab.wandoujia.com/api/v3/ranklist?num=10&strategy=weekly";
+    //        开眼视频
+    public static final String EYES_VIDEO_LIST= "http://baobab.wandoujia.com/api/v3/videos?categoryId="; // 按日期排序"&strategy=date"
 
 
     public static final class Urls {

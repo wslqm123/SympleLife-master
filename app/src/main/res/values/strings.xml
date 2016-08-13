@@ -5,7 +5,7 @@
         <item>有内涵</item>
         <item>赏美图</item>
         <item>知时事</item>
-        <item>全景视频</item>
+        <item>开眼界</item>
         <item>设置</item>
     </string-array>
 
@@ -77,7 +77,20 @@
     </string-array>
 
     <string-array name="video_tab">
+        <item>每周TOP</item>
         <item>全景视频</item>
+        <item>创意</item>
+        <item>开胃</item>
+        <item>旅行</item>
+        <item>预告</item>
+        <item>动画</item>
+        <item>剧情</item>
+        <item>广告</item>
+        <item>综合</item>
+        <item>运动</item>
+        <item>音乐</item>
+        <item>记录</item>
+        <item>时尚</item>
     </string-array>
 
     <string-array name="news_tid">

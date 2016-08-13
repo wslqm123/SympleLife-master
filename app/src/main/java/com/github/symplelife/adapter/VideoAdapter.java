@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.github.symplelife.R;
 import com.github.symplelife.bean.VideoListEntity;
 import com.github.symplelife.common.Constants;
-import com.github.symplelife.hodler.HeadNewsHolder;
+import com.github.symplelife.hodler.EyesVideoHolder;
 import com.github.symplelife.panorama.MD360PlayerActivity;
 
 import java.util.List;
@@ -53,8 +53,8 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_head, parent, false);
-        return new HeadNewsHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_eyes_video, parent, false);
+        return new EyesVideoHolder(view);
 
     }
 
@@ -66,12 +66,20 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
-        ((HeadNewsHolder)holder).setData(videoList.get(position).data.cover.detail,videoList.get(position).data.description);
+        ((EyesVideoHolder)holder).setData(videoList.get(position).data.cover.detail,
+                videoList.get(position).data.title ,videoList.get(position).data.category ,
+                videoList.get(position).data.duration );
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MD360PlayerActivity.startVideo(context, Uri.parse(videoList.get(position).data.playUrl));
+
+                if (keyWord.equals("全景视频")){
+                    MD360PlayerActivity.startVideo(context, Uri.parse(videoList.get(position).data.playUrl),false);
+                }else {
+                    MD360PlayerActivity.startVideo(context, Uri.parse(videoList.get(position).data.playUrl),true);
+                }
+
             }
         });
 

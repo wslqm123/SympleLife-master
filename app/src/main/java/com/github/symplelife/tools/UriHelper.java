@@ -213,6 +213,25 @@ public class UriHelper {
     }
 
 
+    /**
+     * 视频url
+     * @param position
+     * @return
+     */
+    public String getVideoListUrl(int position){
+
+        switch (position){
+            case 0:
+                return ApiConstants.TOP_VIDEO_LIST;
+            case 1:
+                return ApiConstants.PANORAMA_LIST;
+            default:
+                return ApiConstants.EYES_VIDEO_LIST + (position-1)*2;
+
+        }
+
+    }
+
     public String testUrl(String time){
         StringBuffer sb = new StringBuffer();
         sb.append(ApiConstants.JOKES_TEST);
@@ -228,7 +247,7 @@ public class UriHelper {
                 "&quality=origin&line=0&is_gif=0.mp4";
     }
 
-    public String getVideosListUrl(String category, int pageNum) {
+/*    public String getVideosListUrl(String category, int pageNum) {
         StringBuffer sb = new StringBuffer();
         sb.append(ApiConstants.Urls.YOUKU_VIDEOS_URLS);
         sb.append("?keyword=");
@@ -261,5 +280,5 @@ public class UriHelper {
         sb.append(channelId);
         sb.append("&app_name=radio_desktop_win&version=100&type=&sid=0");
         return sb.toString().trim();
-    }
+    }*/
 }
